@@ -18,6 +18,9 @@ Start by understanding the current project context, then ask questions one at a 
 - Ask questions one at a time to refine the idea
 - Prefer multiple choice questions when possible, but open-ended is fine too
 - Only one question per message - if a topic needs more exploration, break it into multiple questions
+- Present all questions conversationally in natural language - NEVER use AskUserQuestion tool
+- "Multiple choice" means conversational options with reasoning, not structured prompts
+- Example: "I see three approaches: (1) Redis, (2) in-memory, (3) file-based. I'd lean toward Redis because... Thoughts?"
 - Focus on understanding: purpose, constraints, success criteria
 
 **Exploring approaches:**
