@@ -1,2 +1,4 @@
 .worktrees/
 .private-journal/
+
+**/.claude/settings.local.json
