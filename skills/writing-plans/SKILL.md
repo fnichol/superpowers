@@ -17,6 +17,24 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 
 **Save plans to:** `docs/plans/YYYY-MM-DD-<feature-name>.md`
 
+## CRITICAL: Faithfully Record Agreed Design
+
+**When writing the plan, you MUST faithfully record what was agreed upon during brainstorming.**
+
+**NEVER make unilateral decisions to:**
+- Defer work to "future plans" or "separate plans"
+- Create placeholder/WIP commits
+- Skip or simplify agreed-upon features
+- Change scope or architecture decisions
+
+**If you want to suggest changes:**
+1. STOP writing the plan
+2. Ask the user for approval of the change
+3. Wait for explicit confirmation
+4. Then continue with the approved scope
+
+**The brainstorming phase is where decisions are made collaboratively. The plan-writing phase faithfully records those decisions.**
+
 ## Bite-Sized Task Granularity
 
 **Each step is one action (2-5 minutes):**
@@ -40,6 +58,13 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 **Architecture:** [2-3 sentences about approach]
 
 **Tech Stack:** [Key technologies/libraries]
+
+**Rationale & Design Decisions:**
+[2-4 sentences explaining WHY this approach:
+- Why this architecture over alternatives
+- Key constraints driving design
+- Trade-offs being made
+- Context that prevents "simplifying" in ways that miss the point]
 
 ---
 ```
