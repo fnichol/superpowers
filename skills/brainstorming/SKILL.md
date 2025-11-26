@@ -11,6 +11,8 @@ Help turn ideas into fully formed designs and specs through natural collaborativ
 
 Start by understanding the current project context, then ask questions one at a time to refine the idea. Once you understand what you're building, present the design in small sections (200-300 words), checking after each section whether it looks right so far.
 
+**Core principle:** When new information invalidates your approach, going backward is faster than patching forward.
+
 ## The Process
 
 **Understanding the idea:**
@@ -34,6 +36,30 @@ Start by understanding the current project context, then ask questions one at a 
 - Ask after each section whether it looks right so far
 - Cover: architecture, components, data flow, error handling, testing
 - Be ready to go back and clarify if something doesn't make sense
+
+## When to Go Backward
+
+**You can and should revisit earlier steps when:**
+
+- Partner reveals new constraint during exploration or design → Go back to understanding
+- Validation shows fundamental gap in what you're building → Go back to asking questions
+- Partner questions your approach during design → Go back to exploring alternatives
+- Something doesn't make sense → Stop and clarify
+
+**Don't force forward progression when going backward would give better results.**
+
+This is not about being "stuck" - it's about getting clarity before continuing.
+
+### Red Flags - Stop and Go Back
+
+If you catch yourself thinking any of these, STOP and go backward:
+
+- "The architecture stays mostly the same, just swap X for Y"
+- "I can adapt what I already presented"
+- "Going back wastes the work I've done"
+- "It's just a small constraint, I can work around it"
+
+**Reality:** When fundamental constraints change, adapting forward = patching over the wrong approach.
 
 ## After the Design
 
