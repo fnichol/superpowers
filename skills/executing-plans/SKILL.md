@@ -17,7 +17,11 @@ Load plan, review critically, execute tasks in batches, report for review betwee
 
 ### Step 1: Load and Review Plan
 1. Read plan file
-2. Review critically - identify any questions or concerns about the plan
+2. **Review critically** - identify any questions or concerns:
+   - Does implementation match stated architecture?
+   - Are there contradictions in the plan?
+   - Are all dependencies compatible?
+   - Are there ambiguous design decisions that need clarification?
 3. If concerns: Raise them with your human partner before starting
 4. If no concerns: Create TodoWrite and proceed
 
@@ -29,6 +33,36 @@ For each task:
 2. Follow each step exactly (plan has bite-sized steps)
 3. Run verifications as specified
 4. Mark as completed
+
+#### When Using Subagents
+
+If delegating tasks to subagents, include these **CRITICAL CONSTRAINTS** in every subagent prompt:
+
+```
+**CRITICAL ARCHITECTURAL CONSTRAINTS:**
+
+DO NOT make architectural decisions beyond what's explicitly specified in the plan.
+
+If you encounter architectural contradictions, missing implementation details requiring design choices, or dependency conflicts:
+
+STOP immediately and report back with:
+1. What you discovered
+2. What decision needs to be made
+3. Options you identified (with trade-offs)
+
+DO NOT proceed by making assumptions or changing the fundamental architecture.
+```
+
+#### Verification Checklist
+
+Before marking a task as completed, verify:
+
+- ✅ Implementation matches planned architecture
+- ✅ No unexpected external dependencies added
+- ✅ Tests pass as expected
+- ✅ No architectural deviations were made
+
+**If any verification fails:** Do not mark complete. Report the issue and get clarification.
 
 ### Step 3: Report
 When batch complete:
@@ -58,6 +92,12 @@ After all tasks complete and verified:
 - Verification fails repeatedly
 
 **Ask for clarification rather than guessing.**
+
+**Examples of when to STOP:**
+- Plan's implementation contradicts stated architecture
+- Dependencies conflict with plan specifications
+- Implementation requires services not mentioned in plan
+- Subagent reports it cannot proceed without architectural guidance
 
 ## When to Revisit Earlier Steps
 
