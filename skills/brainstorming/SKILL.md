@@ -15,6 +15,10 @@ Start by understanding the current project context, then ask questions one at a 
 Do NOT invoke any implementation skill, write any code, scaffold any project, or take any implementation action until you have presented a design and the user has approved it. This applies to EVERY project regardless of perceived simplicity.
 </HARD-GATE>
 
+<HARD-GATE>
+NEVER use the AskUserQuestion tool or any structured/interactive question tool during brainstorming. ALL questions MUST be asked as plain conversational prose. "Multiple choice" means presenting options inline in natural language — never as a tool call or structured prompt.
+</HARD-GATE>
+
 ## Anti-Pattern: "This Is Too Simple To Need A Design"
 
 Every project goes through this process. A todo list, a single-function utility, a config change — all of them. "Simple" projects are where unexamined assumptions cause the most wasted work. The design can be short (a few sentences for truly simple projects), but you MUST present it and get approval.
@@ -63,7 +67,7 @@ digraph brainstorming {
 - Ask questions one at a time to refine the idea
 - Prefer multiple choice questions when possible, but open-ended is fine too
 - Only one question per message - if a topic needs more exploration, break it into multiple questions
-- Present all questions conversationally in natural language - NEVER use AskUserQuestion tool
+- Present all questions conversationally in natural language - NEVER EVER use AskUserQuestion tool when asking questions with this skill
 - "Multiple choice" means conversational options with reasoning, not structured prompts
 - Example: "I see three approaches: (1) Redis, (2) in-memory, (3) file-based. I'd lean toward Redis because... Thoughts?"
 - Focus on understanding: purpose, constraints, success criteria
@@ -118,7 +122,7 @@ If you catch yourself thinking any of these, STOP and go backward:
 ## Key Principles
 
 - **One question at a time** - Don't overwhelm with multiple questions
-- **Multiple choice preferred** - Easier to answer than open-ended when possible
+- **Conversational options preferred** - Offer numbered choices inline in prose (never via a tool); easier to answer than open-ended when possible
 - **YAGNI ruthlessly** - Remove unnecessary features from all designs
 - **Explore alternatives** - Always propose 2-3 approaches before settling
 - **Incremental validation** - Present design, get approval before moving on
