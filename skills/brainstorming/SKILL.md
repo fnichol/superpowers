@@ -31,7 +31,7 @@ You MUST create a task for each of these items and complete them in order:
 2. **Ask clarifying questions** — one at a time, understand purpose/constraints/success criteria
 3. **Propose 2-3 approaches** — with trade-offs and your recommendation
 4. **Present design** — in sections scaled to their complexity, get user approval after each section
-5. **Write design doc** — save to `docs/plans/YYYY-MM-DD-<topic>-design.md` and commit
+5. **Write design doc** — if the `obsidian:vault` skill is available, save there; otherwise default to `docs/plans/YYYY-MM-DD-<topic>-design.md`; if in a Git repo, ask the user before committing
 6. **Transition to implementation** — invoke writing-plans skill to create implementation plan
 
 ## Process Flow
@@ -111,9 +111,10 @@ If you catch yourself thinking any of these, STOP and go backward:
 ## After the Design
 
 **Documentation:**
-- Write the validated design to `docs/plans/YYYY-MM-DD-<topic>-design.md`
+- If the `obsidian:vault` skill is available, use it to save the design document to the vault
+- Otherwise, write the validated design to `docs/plans/YYYY-MM-DD-<topic>-design.md`
 - Use elements-of-style:writing-clearly-and-concisely skill if available
-- Commit the design document to git
+- If saving to a Git repository, **ask the user before committing**
 
 **Implementation:**
 - Invoke the writing-plans skill to create a detailed implementation plan
