@@ -42,6 +42,33 @@ that norms say you ask about first (a merge, a push to a shared branch, a
 publish); and a plan so broken that every path forward is a guess. For
 those, stop and ask.
 
+**The accepted plan is not yours to change.** This overrides "Rulings, not
+stalls" and the four-stop limit above. Your human partner accepted this
+plan and the spec it argues from. Rulings cover only the choices the plan
+deliberately leaves to the implementer: a function body, a library call, a
+local name, a test helper. They never cover the plan itself.
+
+A fifth thing stops you: any finding whose resolution would change, skip,
+reorder, reinterpret, or work around what the plan or spec says. That
+includes a step that contradicts the spec or the stated architecture, tasks
+whose interfaces don't line up, a dependency or service the plan doesn't
+name, a command that cannot work as written, and a review fix that can't be
+made without departing from the plan. When one comes up:
+
+1. Stop before writing anything that depends on the answer. Leave
+   committed work as it is.
+2. Write `Task <N>: STOPPED: <finding>` to the ledger, so a resumed session
+   cannot continue past it.
+3. Tell your human partner what you found, what decision it needs, and the
+   options you see, with their trade-offs and your recommendation.
+4. Wait. Resume only after they decide and the plan (and the spec, if it is
+   affected) has been updated to match. Then write
+   `Task <N>: RESOLVED: <decision> — plan updated` to the ledger, re-read
+   the updated task, and continue from the ledger.
+
+A `Ruling:` that changes the plan is a decision made without your partner,
+however it is labeled.
+
 ## When to Use
 
 - You have a plan from superpowers:writing-plans and your human partner
@@ -74,7 +101,7 @@ digraph process {
         "task-start: brief + BASE; read the brief" [shape=box];
         "Work the steps in order: TDD, run every verification, read every output" [shape=box];
         "Step output matches plan's Expected?" [shape=diamond];
-        "Plan wrong? Rule and ledger. Code wrong? systematic-debugging" [shape=box];
+        "Plan wrong? STOP and ask. Code wrong? systematic-debugging" [shape=box];
         "Commit as the plan's commit steps say" [shape=box];
         "Completion contract met?" [shape=diamond];
         "task-done: run tests, ledger the result; mark todo complete" [shape=box];
@@ -90,8 +117,8 @@ digraph process {
     "Setup: worktree, workspace + ledger, read plan + spec, pre-flight scan" -> "task-start: brief + BASE; read the brief";
     "task-start: brief + BASE; read the brief" -> "Work the steps in order: TDD, run every verification, read every output";
     "Work the steps in order: TDD, run every verification, read every output" -> "Step output matches plan's Expected?";
-    "Step output matches plan's Expected?" -> "Plan wrong? Rule and ledger. Code wrong? systematic-debugging" [label="no"];
-    "Plan wrong? Rule and ledger. Code wrong? systematic-debugging" -> "Work the steps in order: TDD, run every verification, read every output";
+    "Step output matches plan's Expected?" -> "Plan wrong? STOP and ask. Code wrong? systematic-debugging" [label="no"];
+    "Plan wrong? STOP and ask. Code wrong? systematic-debugging" -> "Work the steps in order: TDD, run every verification, read every output";
     "Step output matches plan's Expected?" -> "Commit as the plan's commit steps say" [label="yes, last step"];
     "Commit as the plan's commit steps say" -> "Completion contract met?";
     "Completion contract met?" -> "Work the steps in order: TDD, run every verification, read every output" [label="no - finish the task"];
@@ -157,9 +184,10 @@ Interfaces blocks tell you where to look: for every task that consumes
 what an earlier task produces, one ledger row — the two tasks, what one
 produces against what the other consumes, and what you found. Tasks that
 share nothing get no row; a plan whose tasks share nothing gets the single
-line `Pre-flight: no shared interfaces`. Rule on each conflict a row
-surfaces with the spec as the binding authority, record the ruling beside
-its row, and start Task 1. Each task's own text is checked when you read
+line `Pre-flight: no shared interfaces`. A conflict a row
+surfaces is a plan defect and the fifth stop: record it beside its row,
+bring every conflict to your human partner in one message, and start
+Task 1 only once the plan is updated. Each task's own text is checked when you read
 its brief, not here.
 
 ## The Task Loop
@@ -198,10 +226,9 @@ read its output, and compare. Three outcomes:
   cause; never patch the symptom to make the step's output match.
 - **The plan is wrong** — a step contradicts the spec, an interface from an
   earlier task doesn't match what this task consumes, a command that
-  cannot work. Rule on the smallest change that satisfies the spec, ledger
-  it as `Task <N>: Ruling: <finding> — <what you decided and why>`, and
-  continue. The ruling is carried, not remembered: later tasks that touch
-  the same interface read it from the ledger.
+  cannot work. This is the fifth stop (see the top of this skill): do not
+  rule on it. Ledger `Task <N>: STOPPED: <finding>`, bring it to your human
+  partner, and continue only after the plan is updated.
 
 Commit as the plan's commit steps say. A task that spans several commits
 is fine; BASE is what the review range is cut from, never `HEAD~1`.
@@ -312,7 +339,7 @@ Use superpowers:finishing-a-development-branch.
 | "I remember what Task N says" | You remember a summary. The brief has the exact values. Read it. |
 | "The plan's code is right, skip watching the test fail" | A test you never saw fail proves nothing. It is one step. Run it. |
 | "I'll run the full suite at the end instead of per step" | Per-step runs are how you learn which step broke it. The end-of-task run is the contract, not a substitute. |
-| "The plan is wrong here, I'll just do the right thing" | Do the right thing and ledger the ruling. Unledgered deviation is a decision made in secret. |
+| "The plan is wrong here, I'll just do the right thing" | Stop and ask. Your partner accepted the plan; changing it is their call, ledgered or not. |
 | "I'll write the ledger lines after a few tasks" | Compaction does not wait for a convenient moment. One line per task, in the same message as the commit. |
 | "Let me check in before the next task" | They chose inline to spend less. Progress prompts spend their time instead. Only the four stops stop you. |
 | "I read my own diff carefully; the final reviewer is redundant" | Same author, same blind spots. The reviewer is the only fresh context this run buys. |

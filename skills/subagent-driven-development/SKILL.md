@@ -17,7 +17,7 @@ ledger and the tool results carry the record.
 **Continuous execution:** Do not pause to check in with your human partner between tasks. Execute all tasks from the plan without stopping. The only reasons to stop are the four named below, or all tasks complete. "Should I continue?" prompts and progress summaries waste their time — they asked you to execute the plan, so execute it.
 
 **Rulings, not stalls.** A running plan does not wait on a human. Conflicts,
-ambiguities, plan defects, a cap you would have asked to exceed — decide
+ambiguities, a cap you would have asked to exceed — decide
 them. The spec is the binding authority, the plan is its argument, and your
 judgment settles what neither answers. Record every decision in the ledger as
 `Ruling: <what you decided> — <why> — <what it costs if wrong>`, and keep
@@ -29,6 +29,10 @@ operation; a security-sensitive action; a side effect outside this worktree
 that norms say you ask about first (a merge, a push to a shared branch, a
 publish); and a plan so broken that every path forward is a guess. For those,
 stop and ask.
+
+**Except the plan itself.** Rulings cover only what the plan leaves to the
+implementer. A finding that would change, skip, or work around the plan or
+spec is a fifth stop: read [references/plan-changes.md](references/plan-changes.md).
 
 ## When to Use
 

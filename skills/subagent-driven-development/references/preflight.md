@@ -17,10 +17,9 @@ its own text agrees with itself — the tests it specifies against the code it
 specifies, the files it creates against the files it later touches. "The scan
 is clean" without those rows is not a scan you ran.
 
-Write the table to the ledger. Rule on everything you find before execution
-begins — each finding against the plan text that mandates it — and record
-each ruling in the ledger. If the scan is clean, proceed without comment.
-Rule on each conflict it surfaces — the spec is the binding authority, the
-plan is its argument — record the ruling beside its row, and dispatch
-Task 1. The review loop remains the net for conflicts that only emerge from
+Write the table to the ledger. If the scan is clean, proceed without
+comment. A conflict it surfaces is a plan defect and the fifth stop (top of
+SKILL.md): do not rule on it. Record it beside its row, bring every conflict
+to your human partner in one message, and dispatch Task 1 only once the plan
+is updated. The review loop remains the net for conflicts that only emerge from
 implementation.

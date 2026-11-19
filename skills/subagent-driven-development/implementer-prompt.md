@@ -79,6 +79,9 @@ Subagent (general-purpose):
 
     **STOP and escalate when:**
     - The task requires architectural decisions with multiple valid approaches
+    - The task as written contradicts the spec, the architecture, or another task,
+      or needs a dependency or service the plan doesn't name. Never work around
+      the plan: report what you found, the decision it needs, and the options.
     - You need to understand code beyond what was provided and can't find clarity
     - You feel uncertain about whether your approach is correct
     - The task involves restructuring existing code in ways the plan didn't anticipate
