@@ -10,6 +10,6 @@ Part of superpowers:subagent-driven-development.
 1. If it's a context problem, provide more context and re-dispatch with the same model
 2. If the task requires more reasoning, re-dispatch with a more capable model
 3. If the task is too large, break it into smaller pieces
-4. If the plan itself is wrong, rule on the correction, ledger it, and re-dispatch with the ruling carried in the dispatch
+4. If the plan itself is wrong, that is the fifth stop (top of SKILL.md): ledger `Task <N>: STOPPED: <finding>`, bring it to your human partner, and re-dispatch only after the plan is updated
 
 **Never** ignore an escalation or force the same model to retry without changes. If the implementer said it's stuck, something needs to change.
