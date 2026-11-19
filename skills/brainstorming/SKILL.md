@@ -292,6 +292,8 @@ superpowers:writing-plans and no other skill.
 | "I should explain the process first" | Ask your question. The process shows itself. |
 | "They said 'sounds good' to the idea" | Approval covers what you showed them. A design doc you haven't written isn't approved. |
 | "The spike works, I'll keep building on it" | Keeping it is a new request. Back through the gate. |
+| "It's a small new constraint; I'll just swap X for Y" | If it changes why they want it or which approach fits, go back: play back what changed and lay out the approaches again. |
+| "I can adapt what I already showed them" | Going back is cheaper than patching a design built on an answer that no longer holds. Return to the step it invalidates. |
 
 ## Visual Companion
 
