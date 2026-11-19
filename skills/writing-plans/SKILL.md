@@ -20,6 +20,20 @@ Write implementation plans for an engineer who has not seen this codebase or thi
 
 If the spec covers multiple independent subsystems, it should have been broken into sub-project specs during brainstorming. If it wasn't, suggest breaking this into separate plans — one per subsystem. Each plan should produce working, testable software on its own.
 
+## Record the Agreed Design Faithfully
+
+The spec and the approved design are decisions your human partner made.
+The plan records them; it does not revisit them. Never, on your own:
+
+- defer agreed work to a "future" or "separate" plan
+- plan placeholder, stub, or WIP commits in place of agreed work
+- drop, shrink, or simplify an agreed feature
+- change scope or an architecture decision
+
+If you think one of these is warranted, stop writing, propose the change
+with your reason, and wait for explicit approval before continuing.
+Splitting the plan per the Scope Check above is one of these proposals.
+
 ## File Structure
 
 Before defining tasks, map out which files will be created or modified and what each one is responsible for. This is where decomposition decisions get locked in.
