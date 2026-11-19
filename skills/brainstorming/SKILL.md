@@ -98,6 +98,14 @@ That's the whole message.
 
 ## The Conversation
 
+<HARD-GATE>
+Never use AskUserQuestion or any other structured or interactive question
+tool while brainstorming. Every question, and every set of choices you
+sketch, goes in plain conversational prose: "I see two ways: (1) ...,
+which ...; (2) ..., which .... I'd pick (1) because .... Which way do you
+want to go?"
+</HARD-GATE>
+
 Ask a question only when the answer would change what gets built and
 neither the request nor the project answers it. Otherwise, state your
 call and your reason as a proposal they can correct, and move the work
